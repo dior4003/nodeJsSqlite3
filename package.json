@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "NODE_ENV=development ./node_modules/.bin/netlify-lambda serve src",
+    "build":"NODE_ENV=production ./node_modules/.bin/netlify-lambda build src"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,8 @@
     "express": "^4.17.1",
     "express-handlebars": "^6.0.3",
     "md5": "^2.3.0",
+    "netlify-lambda": "^2.0.15",
+    "serverless-http": "^3.0.1",
     "sqlite3": "^5.0.2"
   },
   "devDependencies": {
