@@ -1,0 +1,59 @@
+<div style="height:100vh;">
+ 
+    {{#if alert}}
+            <div class="alert alert-success alert-dismissible w-25 position-absolute top-0 end-0 fade show" role="alert">
+                {{alert}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {{/if}}
+    <div class="d-flex justify-content-center align-items-center row">
+    {{#each row}}
+
+    <!-- Card widget -->
+        <div class="card-div d-flex justify-content-center align-items-center py-auto col">
+            <div class="card">
+
+                <div class="card-face face-2">
+                    <button class="card-face__back-button" data-card-back="data-card-back">
+                        <i class="bi bi-arrow-left fs-3"></i>
+                    </button>
+                    <a href="/delete/{{this.id}}"><i class="card-face__stats bi bi-trash-fill text-danger fs-1"  ></i></a>
+                    <i class="card-face__stats bi bi-arrow-repeat text-info fs-1" ></i>
+                    <i class="card-face__stats bi bi-image fs-1" ></i>
+                    <!-- Settings Button -->
+                    
+                </div>
+                <div class="card-face face-1">
+                    <button class="card-face__menu-button" data-card-menu="data-card-menu">
+                        <i class="bi bi-three-dots-vertical fs-3"></i>
+                    </button>
+                    <div class="card-face__avatar">
+                        {{#if row.img}}
+                            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/csswizardry/128.jpg" width="110" height="110"  draggable="false"/>
+                        {{else}}
+                            <div class="no-img">
+                                <h1 class="no-img-text-all">{{this.first_name}}</h1>
+                            </div>
+                        {{/if}}
+                    </div>
+                        <h2 class="card-face__name">{{this.first_name}}  {{this.last_name}}</h2>
+                        <span class="card-face__title">{{this.email}}</span>
+                        <span class="card-face__"> Age: {{this.age}}</span>
+
+                    <div class="card-face-footer">
+                        <a class="card-face__social" href="/edituser/{{this.id}}">
+                            <i class="bi bi-gear-fill fs-3"></i>
+                        </a>
+                        <a class="card-face__social" href="/" >
+                            <i class="bi bi-person-plus fs-3"></i>
+                        </a>
+                        <a class="card-face__social" href="/users">
+                            <i class="bi bi-people fs-3"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    {{/each}}
+    </div>
