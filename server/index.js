@@ -17,7 +17,7 @@ const handlebars = exphbs.create({ extname: '.hbs',});
 app.engine('.hbs', handlebars.engine);
 app.set('view engine', '.hbs');
 const routes=require("./router");
-app.use('/.netlify/functions/server', routes);  // path must route to lambda
+// app.use('/.netlify/functions/server', routes);  // path must route to lambda
 app.use('/', routes);
 
 
